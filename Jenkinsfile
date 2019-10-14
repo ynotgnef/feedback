@@ -1,7 +1,9 @@
 #!/usr/bin/env groovy
 
 properties([
-  string(name: 'GIT_BRANCH', defaultValue: 'master', description: 'Git branch')
+  parameters([
+    string(name: 'GIT_BRANCH', defaultValue: 'snippets', description: 'Git branch')
+  ])
 ])
 
 node('master') {
