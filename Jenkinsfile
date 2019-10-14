@@ -22,12 +22,12 @@ node('master') {
     )
   }
   stage('Build Image') {
-    sh "docker build -t ${repo}:${gitCommit} ."
+    sh "sudo docker build -t ${repo}:${gitCommit} ."
   }
   stage('Run Image') {
     sh """
-      docker container prune
-      docker run --name ${repo} ${repo}:${gitCommit} ${cmd}
+      sudo docker container prune
+      sudo docker run --name ${repo} ${repo}:${gitCommit} ${cmd}
     """
   }
   stage('Artifact Results') {
